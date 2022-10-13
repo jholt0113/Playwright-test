@@ -17,5 +17,8 @@
   "homepage": "https://github.com/Apclassic/Playwright-test#readme",
   "devDependencies": {
     "@playwright/test": "^1.26.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
   }
 }

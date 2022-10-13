@@ -11,6 +11,7 @@ const { devices } = require("@playwright/test");
  * @see https://playwright.dev/docs/test-configuration
  * @type {import('@playwright/test').PlaywrightTestConfig}
  */
+require("dotenv").config();
 const config = {
   testDir: "./eezy-test",
   /* Maximum time one test can run for. */
