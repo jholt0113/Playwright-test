@@ -22,4 +22,19 @@ test("Login failure", async ({ page }) => {
     "Invalid email address or password"
   );
 });
-test("Password Reset", async ({ page }) => {});
+test("Password Reset", async ({ page }) => {
+  await page.goto("/skip");
+  await page.locator("text=Forgot your password?").click();
+  await expect(page).toHaveURL(
+    "https://develop.eezy-content-manager.work/users/password/new"
+  );
+  await page.locator('[placeholder="Email address"]').click();
+  await page.locator('[placeholder="Email address"]').fill("bbriggs@eezy.com");
+  await page.locator("text=Send reset password instructions").click();
+  await expect(page).toHaveURL(
+    "https://develop.eezy-content-manager.work/users/sign_in"
+  );
+  await expect(page.locator('[class="ui success message"]')).toContainText(
+    "You will receive an email with instructions on how to reset your password in a few minutes."
+  );
+});
